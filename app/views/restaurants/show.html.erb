@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Welcome to <%= @restaurant.name %></h2>
+  
+  <p>Find us at <%= @restaurant.address %></p>
+  
+  <hr>
+  
+  <h3>Reviews</h3>
+  
+  <ul>
+  
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <%= review.comment %> - <%= "⭐" * review.rating %>
+      </li>
+    <% end %>
+  
+  </ul>
+</div>
