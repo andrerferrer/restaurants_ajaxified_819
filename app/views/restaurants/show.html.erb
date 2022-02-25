@@ -7,13 +7,13 @@
   
   <h3>Reviews</h3>
   
-  <ul>
-  
-    <% @restaurant.reviews.each do |review| %>
-      <li>
-        <%= review.comment %> - <%= "⭐" * review.rating %>
-      </li>
-    <% end %>
-  
-  </ul>
+  <div id="stimulus-controller" data-controller="insert-in-list">
+    <h4>Add a Review</h4>
+    <%= render 'restaurants/form', restaurant: @restaurant, review: @review %>
+    <ul data-insert-in-list-target='items'>
+      <% @restaurant.reviews.each do |review| %>
+        <%= render 'restaurants/review', review: review %>
+      <% end %>
+    </ul>
+  </div>
 </div>
